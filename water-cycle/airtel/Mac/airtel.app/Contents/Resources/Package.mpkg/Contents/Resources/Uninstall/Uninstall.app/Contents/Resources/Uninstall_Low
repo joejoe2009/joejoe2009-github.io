@@ -1,0 +1,261 @@
+#!/bin/sh
+
+source "$1"
+
+if [ ! -f "$1" ]; then
+	echo "$1 do not exists!"
+	exit
+fi
+
+SEARCH_RESULT=$(echo $app_name_prefix | grep /)	# Search /
+if ! [ "x$SEARCH_RESULT" = "x" ]; then
+	APP_FOLDER_NAME="${app_name_prefix%/*}"
+else
+	APP_FOLDER_NAME=""
+fi
+APP_NAME_PREF="${app_name_prefix##*/}"
+
+App_Process="$APP_NAME_PREF"
+App_Name="$app_name"
+
+Update_Firmware_Process="UpdateFirmware"
+Update_Firmware="$Update_Firmware_Process.app"
+
+Auto_Update_Manager_Process="AutoUpdateManager"
+Auto_Update_Manager="$Auto_Update_Manager_Process.app"
+
+App_Support="/Library/Application Support/DataCard Manager"
+App_Log="/Library/Application Support/$App_Name"
+Uninstall_File="Uninstall $App_Name"
+Uninstall_File_Path="$app_root/$Uninstall_File"
+
+MiniUI="MiniUI"
+UnsTxt="UninstallZTEDatacardDriver.txt"
+
+ModemList="$pref_root"
+ModemScript="/Library/Modem Scripts/ZTE USB MODEM"
+
+#
+# MessageCenter
+#
+MessageCenter_config="/Library/LaunchDaemons/cn.com.zte.MessageCenter.plist"
+MessageCenter_file="/Library/Application Support/ZTE/MessageCenter"
+
+#
+# Update
+#
+Update_path="/System/Library/Auto_Update"
+
+#
+# For PPPMonitord uninstall
+#
+Remove_App_Support="NO"
+if [ -e "/usr/local/join_air_data/References.plist" ]; then
+	defaults delete "/usr/local/join_air_data/References" "$app_root/$app_name" >/dev/null 2>&1
+	if [ $? != 0 ]; then
+		echo "Delete references failed!"
+	fi
+	chown root:wheel "/usr/local/join_air_data/References.plist"
+	chmod 0777 "/usr/local/join_air_data/References.plist"
+	
+	defaults read "/usr/local/join_air_data/References" >/dev/null 2>&1
+	if [ $? != 0 ]; then
+		echo "" >> /tmp/uninstall.usbmodem
+		Remove_App_Support="YES"
+	fi
+else
+	echo "" >> /tmp/uninstall.usbmodem
+	Remove_App_Support="YES"
+fi
+
+echo "##	Begin uninstall...!"
+echo ""
+echo ""
+
+#Uninstall ExecCommand.app
+if [ -e "$common_data_path/ExecCommand.app" ]; then
+	rm -Rf "$common_data_path/ExecCommand.app"
+fi
+
+# Unload PPPMonitord
+if [ "x$Remove_App_Support" = "xYES" ]; then
+	if [ -e "$PPPMonitord_Config" ]; then
+		launchctl unload "$PPPMonitord_Config"
+		rm -f "$PPPMonitord_Config"
+	fi
+
+	if [ -e "$Old_PPPMonitord_Config" ]; then
+		launchctl unload "$Old_PPPMonitord_Config"
+		rm -f "$Old_PPPMonitord_Config"
+	fi
+	if [ -e "$Old_Swapper_Config" ]; then
+		su -l "$USER" -c "launchctl load -S Aqua $Old_Swapper_Config"
+		rm -f "$Old_Swapper_Config"
+	fi
+	if [ -e "$CheckPreviousManager_Config" ]; then
+		launchctl unload "$CheckPreviousManager_Config"
+		rm -f "$CheckPreviousManager_Config"
+	fi
+	if [ -e "$app_support_path" ]; then
+		rm -rf "$app_support_path"
+	fi
+	if [ -e "$Old_app_support_path" ]; then
+		rm -rf "$Old_app_support_path"
+	fi
+	if [ -e "$common_data_path" ]; then
+		rm -rf "$common_data_path"
+	fi
+	if [ -e "$Uninstall_File_Path/Contents/Resources/UninstallDatacardDriver" ]; then
+	source "$Uninstall_File_Path/Contents/Resources/UninstallDatacardDriver"
+	else
+	cd "$drv_root"
+	for drv_item in $drv_names; do
+		echo "Delete driver $drv_item"
+		kextunload "$drv_item"
+		rm -R "$drv_item"
+	done
+	touch -fm "$drv_root"	
+	fi
+	killall Mac_SwapperDemon
+fi
+
+# Unload MessageCenter
+if [ -e "$MessageCenter_config" ]; then
+	launchctl unload "$MessageCenter_config"
+	rm -f "$MessageCenter_config"
+fi
+
+#if [ -e "$App_Support" ]; then
+#	rm -rf "$App_Support"
+#fi
+
+
+echo "#	Delete usbswapper"
+if [ "x$Remove_App_Support" = "xYES" ]; then
+if [ -e "$Swapper_Config" ]; then
+	rm -f "$Swapper_Config"
+fi
+fi
+echo "#	delete Swapper"
+if [ "x$2" = "x-Y" ]; then
+	if [ -e "$PPPMonitord_Config" ]; then
+		launchctl unload "$PPPMonitord_Config"
+		rm -f "$PPPMonitord_Config"
+	fi
+	if [ -e "$app_support_path" ]; then
+		rm -rf "$app_support_path"
+	fi
+	if [ -e "$Swapper_Config" ]; then
+	rm -f "$Swapper_Config"
+	fi
+	
+
+	if [ -e "$CheckPreviousManager_Config" ]; then
+		launchctl unload "$CheckPreviousManager_Config"
+		rm -f "$CheckPreviousManager_Config"
+	fi
+fi
+
+#Uninstall Driver
+if [ "x$UninstallDriver" = "xYES" ]; then
+	if [ -e "$Uninstall_File_Path/Contents/Resources/UninstallDatacardDriver" ]; then
+	source "$Uninstall_File_Path/Contents/Resources/UninstallDatacardDriver"
+	else
+	cd "$drv_root"
+	for drv_item in $drv_names; do
+		echo "Delete driver $drv_item"
+		kextunload "$drv_item"
+		rm -R "$drv_item"
+	done
+	touch -fm "$drv_root"	
+	fi
+fi
+	
+echo "#	Delete configuration"
+if [ -e "$ModemList" ]; then
+	rm -rf "$ModemList"
+fi
+
+echo "#	Delete modemscript"
+if [ -e "$ModemScript" ]; then
+	rm -f "$ModemScript"
+fi
+
+echo "#	Delete UI"
+MacUI="$app_root/$App_Name"
+if [ -e "$MacUI" ]; then
+	rm -rf "$MacUI"
+fi
+
+echo "#	Delete log"
+if [ -e "$App_Log" ]; then
+	rm -rf "$App_Log"
+fi
+
+echo "#	Delete update files"
+killall "$Update_Firmware_Process"
+firmware="$app_root/$Update_Firmware"
+if [ -e "$firmware" ]; then
+	rm -rf "$firmware"
+fi
+
+killall "$Auto_Update_Manager_Process"
+updatemanger="$app_root/$Auto_Update_Manager"
+if [ -e "$updatemanger" ]; then
+	rm -rf "$updatemanger"
+fi
+
+if [ -e "$Update_path" ]; then
+	rm -rf "$Update_path"
+fi
+
+echo "#	Delete others"
+if [ -e "$MiniUI" ]; then
+	rm -f "$MiniUI"
+fi
+
+if [ -f "$UnsTxt" ]; then
+	rm -f "$UnsTxt"
+fi
+
+echo "#	Delete uninstall file"
+#uninstall="$app_root/$Uninstall_File"
+if [ -e "$Uninstall_File_Path" ]; then
+	rm -rf "$Uninstall_File_Path"
+fi
+
+if [ "x$APP_FOLDER_NAME" != "x" ]; then
+	rm -rf "/Applications/$APP_FOLDER_NAME"
+fi
+
+if [ -d "/usr/local/lib" ]; then
+	cd /usr/local/lib
+	
+	rm -f libmms.dylib libscmms.dylib libscstack.dylib
+
+	cd -
+fi
+
+rm -f /tmp/uninstall.usbmodem
+
+echo "#Delete new font"
+if [ "x$font_name" != "x" ]; then
+	if [ -e "$font_path/$font_name" ]; then
+		rm -f "$font_path/$font_name"
+	fi
+fi
+
+echo "#	Delete update_app_path"
+if [ -e "$update_app_path" ]; then
+	UpdateInfoPath="$update_app_path//UpdateTool.app/Contents/Resources/UIInfo"
+	UpdateFlag=`defaults read "$UpdateInfoPath" "IsUpdating"`
+	if [ "x$UpdateFlag" = "x0" ]; then
+		rm -rf "$update_app_path"
+	fi
+	if [ "x$UpdateFlag" = "x" ]; then
+		rm -rf "$update_app_path"
+	fi
+fi
+echo "##	Uninstall finished successfully!"
+
+

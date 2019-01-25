@@ -1,0 +1,44 @@
+#!/bin/sh
+
+source "$1"
+
+
+Remove_App_Support="NO"
+
+#
+#if there is still a UI on PC ,we need to keep Mac_DeviceMonitor alive
+#
+
+if [ "x$2" = "xNO" ]; then
+echo "there is other ui in pc"
+else
+	launchctl unload "$Swapper_Config"
+	killall Mac_DeviceMonitor
+fi
+
+Uninstall_File="Uninstall $app_name"
+
+#for backup
+"$app_root/$Uninstall_File/Contents/Resources/BackupAndRestore.app/Contents/MacOS/BackupAndRestore" "$app_root/$app_name" "backup"
+status_BackupAndRestore="yes"
+
+until [ "x${status_BackupAndRestore}" = "x" ]
+do
+	status_BackupAndRestore=""
+	BackupAndRestore=$(ps -axc | grep "BackupAndRestore")
+	for _BackupAndRestore in $BackupAndRestore; do
+		if [ "x${_BackupAndRestore}" = "xBackupAndRestore" ]; then
+			status_BackupAndRestore="yes"
+		fi
+	done
+	sleep 1
+done
+
+if [ "x$Need_Alias" = "xYES" ]; then
+	# Delete desktop icon
+	"$app_root/$Uninstall_File/Contents/Resources/LinkOperation.app/Contents/MacOS/LinkOperation" -d
+fi
+
+if [ "x$Need_Dock" = "xYES" ]; then
+	open "$app_root/$Uninstall_File/Contents/Resources/DelFromDock.app"
+fi

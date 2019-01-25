@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MTKVersion</key>
+	<false/>
+	<key>BackupAppFilePath</key>
+	<string>Resources/ModemList</string>
+	<key>BackupFiles</key>
+	<array/>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>Uninstall</string>
+	<key>CFBundleIconFile</key>
+	<string>icon</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.joinair.Uninstall</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Uninstall</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.2</string>
+	<key>DeviceName</key>
+	<string>ZTEUSB</string>
+	<key>LSHasLocalizedDisplayName</key>
+	<true/>
+	<key>ModemAlert</key>
+	<string>NO</string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NeedAlertWindow</key>
+	<false/>
+	<key>NeedBackup</key>
+	<string>NO</string>
+	<key>NeedUninstallDriver</key>
+	<false/>
+	<key>NoInterface</key>
+	<false/>
+	<key>RemoveModem</key>
+	<string>NO</string>
+	<key>Warning</key>
+	<string>NO</string>
+	<key>identifierName</key>
+	<string>com.joinair.DataCardUI</string>
+</dict>
+</plist>

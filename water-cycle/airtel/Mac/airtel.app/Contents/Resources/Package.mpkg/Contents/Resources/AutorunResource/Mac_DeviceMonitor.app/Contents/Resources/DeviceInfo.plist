@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>VendorID</key>
+	<array>
+		<string>6610</string>
+		<string>7912</string>
+	</array>
+	<key>ExcludedProductID</key>
+	<array>
+		<string>8192</string>
+		<string>64</string>
+		<string>3840</string>
+	</array>
+</dict>
+</plist>

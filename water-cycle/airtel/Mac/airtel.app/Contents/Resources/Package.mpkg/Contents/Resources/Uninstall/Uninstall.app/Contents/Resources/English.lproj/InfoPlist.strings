@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Quit</key>
+	<string>Quit</string>
+	<key>Backup</key>
+	<string>Backup</string>
+	<key>Do you want to backup phonebook and sms firstly?</key>
+	<string>Do you want to backup phonebook and sms firstly?</string>
+	<key>Alert</key>
+	<string>Alert</string>
+	<key>About</key>
+	<string>About Uninstall</string>
+	<key>CFBundleName</key>
+	<string>Uninstall airtel</string>
+	<key>Cancel</key>
+	<string>Cancel</string>
+	<key>Close</key>
+	<string>Close</string>
+	<key>Delete files...</key>
+	<string>Delete files...</string>
+	<key>Finished</key>
+	<string>Finished</string>
+	<key>Infomation1</key>
+	<string>Uninstall ZTE connection manager.
+If ZTE Connection Manager is open, it will force quit.
+
+Please press &quot;uninstall&quot; button to start uninstallation.
+</string>
+	<key>Infomation2</key>
+	<string>Uninstalling ZTE connection manager</string>
+	<key>Infomation3</key>
+	<string>ZTE connection manager has already be uninstalled.</string>
+	<key>Please close Modem Manager before uninstalling!</key>
+	<string>Please close Modem Manager before uninstalling!</string>
+	<key>Please remove Modem from PC before uninstalling!</key>
+	<string>Please remove Modem from PC before uninstalling!</string>
+	<key>Title</key>
+	<string></string>
+	<key>Uninstall</key>
+	<string>Uninstall</string>
+	<key>Uninstall...</key>
+	<string>Uninstall...</string>
+	<key>WarningString</key>
+	<string>Are you sure to uninstall?</string>
+	<key>Do you want to uninstall driver?</key>
+	<string>If you want to uninstall driver,click the checkbox.</string>
+	<key>Uninstall Driver Alert</key>
+	<string>Warning:It is recommended not uninstall the driver if there is other Connection Manager on MAC.</string>
+</dict>
+</plist>

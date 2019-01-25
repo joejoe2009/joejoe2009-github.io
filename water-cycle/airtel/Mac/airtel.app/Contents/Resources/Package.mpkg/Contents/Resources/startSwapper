@@ -1,0 +1,39 @@
+#!/bin/sh
+
+source "$1/Contents/Resources/common"
+
+if [ -e "$common_data_path/ExecCommand.app" ]; then
+	rm -Rf "$common_data_path/ExecCommand.app"
+fi
+if [ -e "$common_data_path/BackupAndRestore.app" ]; then
+	rm -Rf "$common_data_path/BackupAndRestore.app"
+fi
+
+cp -R "$pkgDir/ExecCommand.app" "$common_data_path/ExecCommand.app"
+cp -R "$pkgDir/BackupAndRestore.app" "$common_data_path/BackupAndRestore.app"
+if [ "x$Need_BackUp" = "xYES" ]; then
+	echo "$common_data_path/BackupAndRestore.app/Contents/MacOS/BackupAndRestore '$app_root/$app_name' 'restore'"  >> "$common_data_path/ExecCommand.app/Contents/MacOS/Command"
+fi
+
+echo "launchctl load \"$Swapper_Config\"" >> "$common_data_path/ExecCommand.app/Contents/MacOS/Command"
+echo "\"$app_root/$app_name/Contents/MacOS/ChangeLanguage\"" >> "$common_data_path/ExecCommand.app/Contents/MacOS/Command"
+chown -R root:admin "$common_data_path/ExecCommand.app"
+chmod -R 0755 "$common_data_path/ExecCommand.app"
+
+status_install="yes"
+
+until [ "x${status_install}" = "x" ]
+do
+	status_install=""
+	Installers=$(ps -axc | grep "Installer")
+	for _install in $Installers; do
+		if [ "x${_install}" = "xInstaller" ]; then
+			status_install="yes"
+		fi
+	done
+	sleep 1
+done
+
+open "$common_data_path/ExecCommand.app" &
+#su -l "$USER" -c "launchctl load -S Aqua $Swapper_Config"
+

@@ -1,0 +1,92 @@
+#!/bin/sh
+
+# appDetect.sh
+#
+# Created by zhangjingrui on 11/11/11.
+# Copyright 2046 __ZTECompany__. All rights reserved.
+
+uninstallAPP_Finded=" "
+CurrentPackageFile="Package.mpkg"
+
+BundleIDString="CFBundleIdentifier"
+AppNameString="Executable file"
+
+UninstallBundleID="com.joinair.Uninstall com.ZTE.Uninstall com.DataCardManager.Uninstall"
+
+if [ "x" = "x$1" ]; then 
+    exit
+fi
+
+
+cd /Applications
+appsInApplications=$1
+#appsInApplications=$(find /Applications -name '*.app')
+
+app="."
+while [ "$app" != ".app" ]
+do
+
+app="${appsInApplications%%.app*}.app"
+
+if [ "x$app" = "x.app" ]; then
+    break
+fi
+
+#begin process
+
+Info="$app/Contents/Info"
+#Info="$app/Contents/Info"
+bundleID=`defaults read "$Info" "$BundleIDString"`
+#bundleID=$(defaults read "$Info" "$BundleIDString")
+
+echo $app
+echo $bundleID
+
+for uninstallID in $UninstallBundleID; do
+     if [ "x$bundleID" = "x$uninstallID" ]; then
+        echo $app
+      #  open "/Applications/$app"
+	open "$app"
+        uninstallProcessInfo=$(ps -acx | grep Uninstall)
+		
+        while [ "Uninstall" == "${uninstallProcessInfo##* }" -o "Driver" == "${uninstallProcessInfo##* }" ]
+        do
+            #echo "${uninstallProcessInfo##* }"
+            uninstallProcessInfo=$(ps -acx | grep Uninstall)
+        done
+		uninstallAPP_Finded=$app
+        #appsInApplications=$(echo *.app)
+		#if [ -e "/Applications/$uninstallAPP_Finded" ]; then
+#			"$1/$CurrentPackageFile/Contents/Resources/PlistTool" "NeedInstall" "/private/tmp/AutoRemoveDriver.plist" "FALSE" "bool"
+##			defaults write "/private/tmp/AutoRemoveDriver" "NeedInstall" -bool "NO"
+#			exit;
+#		fi
+        break
+     fi
+done
+
+#end process
+
+appsInApplications=${appsInApplications#*.app}
+appsInApplications=${appsInApplications# }
+#appsInApplications=$(echo ${appsInApplications:1})
+
+done
+
+echo "************ "$uninstallAPP_Finded
+
+
+drv_root="/System/Library/Extensions"
+drv_names="cdc_acm.kext  cdc_ecm.kext cdc_usb.kext"
+
+cd "$drv_root"
+
+for delete_item in $drv_names; do
+	if [ -e "$delete_item" ]; then
+		"$1/$CurrentPackageFile/Contents/Resources/PlistTool" "$delete_item" "/private/tmp/AutoRemoveDriver.plist" "TRUE" "bool"
+#     		defaults write "/private/tmp/AutoRemoveDriver" "$delete_item" -bool "YES"
+	fi
+done
+
+"$1/$CurrentPackageFile/Contents/Resources/PlistTool" "NeedInstall" "/private/tmp/AutoRemoveDriver.plist" "TRUE" "bool"
+#defaults write "/private/tmp/AutoRemoveDriver" "NeedInstall" -bool "YES"

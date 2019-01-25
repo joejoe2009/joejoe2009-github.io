@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AppName</key>
+	<string>Unicom Connection Manager</string>
+	<key>AppFullPath</key>
+	<string>/Applications/Unicom Connection Manager.app/</string>
+	<key>AppDataCode</key>
+	<string>&lt;00000000 00d40003 00010000 c31ccf2d 0000482b 00000000 000000a0 00430564 0000c5c8 3ae40000 00000920 fffe0000 00000000 0000ffff ffff0001 00040000 00a0000e 003c001d 0055006e 00690063 006f006d 00200043 006f006e 006e0065 00630074 0069006f 006e0020 004d0061 006e0061 00670065 0072002e 00610070 0070000f 0016000a 004d0061 0063004f 00530020 00310030 002e0035 0012002a 4170706c 69636174 696f6e73 2f556e69 636f6d20 436f6e6e 65637469 6f6e204d 616e6167 65722e61 70700013 00012f00 ffff0000&gt;</string>
+</dict>
+</plist>
