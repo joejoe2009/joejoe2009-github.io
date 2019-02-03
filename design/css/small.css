@@ -14,7 +14,7 @@ body {
 
 /*----------- HEADER --------------*/
 header {
-    padding: .5rem 2%;
+    padding: .5rem 1%;
     background-color: #ddd;
 }
 header img{float: left; margin-right: 10px; width: 55px;}
@@ -54,6 +54,16 @@ main {
     padding: 0 2%;
     min-height: 10rem;
 }
+
+main img {
+    float: right;
+}
+
+main img {width: 16%; margin: 0;}
+
+
+
+
 
 
 /*----------- FOOTER --------------*/
