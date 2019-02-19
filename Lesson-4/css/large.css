@@ -19,8 +19,10 @@
 
 
 /*----------- MAIN --------------*/
-
-
+div.row section:nth-child(1) {width: 25%; float: left;}
+div.row section:nth-child(2) {width: 40%;}
+div.row section:nth-child(3) {width: 35%;}
+    
 
 /*----------- FOOTER --------------*/
     
