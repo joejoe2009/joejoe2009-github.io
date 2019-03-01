@@ -25,6 +25,17 @@ header h2 {margin: 0; font-weight: normal; font-size: 1rem;}
 
 
 /*----------- NAVIGATION --------------*/
+
+nav button{
+    margin: .2rem 2%;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6rem;
+    color: #fff;
+}
+
+
+
 nav {
     background-color: #626202;
 }
@@ -36,22 +47,26 @@ nav ul {
 
 nav ul li a {
     display: block;
+    padding: .8rem 2%;
     color: #B9B90D;
-    padding: .5rem 0;
     text-decoration: none;
     font-size: .9rem;
     text-align: center;
 }
 
 
-nav ul li a:hover {
-    background-color: #aaa;
-    color: #333;
-}
 nav ul li.active a {
     background-color: #000;
     color: #fff;
 }
+
+nav ul li a:hover {
+    background-color: #aaa;
+    color: #333;
+}
+
+nav ul.hide {display: none;}
+
 /*----------- MAIN --------------*/
 main {
     padding: 0 2%;
@@ -99,7 +114,7 @@ h2 {text-align: center;font-size:2rem;text-shadow:3px 3px 5px #777;}
 	position: absolute;
 	top: 25px;
 	left: 50px;
-	background: radial-gradient(#eee, #4567aa;);
+	background: radial-gradient(#eee, #4567aa);
 	border: 1px solid #000;
 	padding: 1.5rem;
 	box-shadow: 0 0 30px #fff;
