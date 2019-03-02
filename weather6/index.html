@@ -50,11 +50,12 @@
     
     
 <!-- CONTENT HERE -->
-    <main>
+    <main class="clearfix">
         <h1>Home</h1>
          <div class="herodiv">
          <figure class="myphoto">
-         <img src="images/hero.jpg" alt="weather condition">
+         <img src="images/hero.jpg" alt="weather condition" sizes="100vw"
+              srcset="images/hero1.jpg 200w, images/hero2.jpg 500w, images/hero3.jpg 800w, images/hero4.jpg 1100w">
          <figcaption>Weather Condition</figcaption>
          </figure>
          <div class="row">         
@@ -141,8 +142,11 @@
     
 <!-- FOOTER HERE -->   
     <footer>
+            <button onclick="myCurrentDate()">Day</button>
+            <p id="date"></p>
         &amp; 201x &bull; Joseph Itiose learn; 123-602-7789
     </footer>
     <script src="js/scripts.js"></script>
+    
 </body>
 </html>
