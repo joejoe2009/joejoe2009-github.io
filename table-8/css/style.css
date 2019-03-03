@@ -9,6 +9,11 @@ h1 {
    
 }
 
+tbody tr:nth-child(even){ background-color:#e7f0ed;}
+
+tbody tr:nth-child(odd){ background-color: #e7ffed;}
+
+
 /* Navigation */
 
 .navigation {
@@ -76,6 +81,12 @@ th, td {
   text-align: left;
   width: 33.3333%;
 }
+
+.special {
+  background-color: #628ca6;
+  color:white;
+}
+
 
 tfoot td {
     text-align: center;
