@@ -13,11 +13,6 @@ tbody tr:nth-child(even){ background-color:#e7f0ed;}
 
 tbody tr:nth-child(odd){ background-color: #e7ffed;}
 
-tbody tr:nth-child(1) {
-  background-color: #628ca6;
-  color: white;
-  font-weight: bold;
-}
 
 tbody tr:nth-child(6) td:nth-child(1) {
   font-style: italic;
