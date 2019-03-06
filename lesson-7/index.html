@@ -29,10 +29,12 @@
 <body>
 <!-- HEADER HERE -->
 <header class="clearfix">
-        <img src="images/logo0.png" alt="logo">
- <h1>The weather Site</h1>
-    <h2>Providing Updates and weather intel for Benin City, Edo state</h2>
-    </header>
+   <img src="images/logo0.png" alt="logo">
+    <div>
+       <h1>The weather Site</h1>
+       <h2>Providing Updates and weather intel for Benin City, Edo state</h2>
+    </div>
+</header>
     
     
     
@@ -53,6 +55,21 @@
 <!-- CONTENT HERE -->
     <main class="clearfix">
         <h1>Home</h1>
+
+        <div class="container">
+                <figure><img src="images/gallery.jpg" alt="gallery"><figcaption>Disaster</figcaption></figure>
+    
+            <figure><img src="images/gallery1.jpg" alt="gallery1"><figcaption>Dreamstime</figcaption></figure>
+    
+            <figure><img src="images/gallery2.jpg" alt="gallery2"><figcaption>Shutterstock</figcaption></figure>
+    
+            <figure><img src="images/gallery3.jpg" alt="gallery3"><figcaption>Jijelnews</figcaption></figure>
+    
+            <figure><img src="images/gallery4.jpg" alt="gallery4"><figcaption>Pexel</figcaption></figure>
+    
+            <figure><img src="images/gallery5.jpg" alt="gallery5"><figcaption>GettyImages</figcaption></figure>
+             </div>
+
          <div class="herodiv">
          <figure class="myphoto">
          <img src="images/hero.jpg" alt="weather condition" sizes="100vw"
@@ -64,7 +81,12 @@
 			<h3>Current conditions</h3>
 			<p>Partly cloudy</p>
 			<p>Low: 36°</p>
-			<p>High: 87°</p>
+            <p>High: 87°</p>
+            Temperature (°F) <input type="text" id="tempFInputBox"><br>
+             Wind Speed (MPH) <input type="text" id="speedInputBox"><br>
+             
+             <button type="button" onclick="doInputOutput()">windChill</button>
+             <div id="outputDiv"></div>
 		</section>
 	</div>
           
@@ -117,11 +139,6 @@
                     </thead>
                  
              </table>
-             Temperature (°F) <input type="text" id="tempFInputBox"><br>
-             Wind Speed (MPH) <input type="text" id="speedInputBox"><br>
-             
-             <button type="button" onclick="doInputOutput()">windChill</button>
-             <div id="outputDiv"></div>
 
          </section>
 

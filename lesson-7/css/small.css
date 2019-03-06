@@ -13,16 +13,12 @@ body {
 
 
 /*----------- HEADER --------------*/
-.logo {
-    display: grid;
-    grid-template-rows: repeat(8, 0.3vw);
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 15px;
-}
 
 header {
     padding: .5rem 2%;
     background-color: #6E6E10;
+    display: grid;
+    grid-template-columns: 130px auto;
 }
 
 header img{float: left; margin-right: 10px; width: 55px;}
@@ -128,17 +124,19 @@ h2 {text-align: center;font-size:2rem;text-shadow:3px 3px 5px #777;}
 
 }
 
-.container {
-    margin: 1rem auto; 
-    display:grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    max-width: 1048px;
-    box-shadow: 0 0 50px #333;
-    
+div.container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
+div.container figure {
+    flex-basis: 66%;
+    margin: 1rem 2%;
+}
 
-
+div.container figure img {
+     width: 100%;
+}
 table, td {
     border: 1px solid black;
     width: 10%;

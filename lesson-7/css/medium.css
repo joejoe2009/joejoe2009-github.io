@@ -29,6 +29,10 @@ nav ul li a{
 nav ul.hide {display: block;}
 
 /*----------- MAIN --------------*/
+div.container figure {
+    flex-basis: 31%;
+}
+
 table {
     display: block;
 }

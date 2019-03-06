@@ -19,3 +19,5 @@ function myCurrentDate() {
     var n = weekday[d.getDay()];
     document.getElementById("date").innerHTML = n;
   }
+
+  
