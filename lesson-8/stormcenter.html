@@ -5,8 +5,8 @@
 <meta name="description" content="Fill Me In">
 <meta name="author" content="John Doe">
 
-<!-- This start file was build by Paul Cheney  -->
-<title>HTML5 Start Site by Paul Cheney</title>
+<!-- This start file was build by Joseph Itiose  -->
+<title>Home: The Weather Site</title>
 
 <!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -28,15 +28,19 @@
 </head>
 <body>
 <!-- HEADER HERE -->
-	<header>
- <h1>Course Proposal</h1>
-        <h2>Designing Web Forms</h2>
-    </header>
+<header class="clearfix">
+    <img src="images/logo0.png" alt="logo">
+     <div>
+        <h1>The weather Site</h1>
+        <h2>Providing Updates and weather intel for Benin City, Edo state</h2>
+     </div>
+</header>
     
     
 <!-- NAVIGATION HERE -->
 <nav class="clearfix">
-        <ul >
+        <button onclick="toggleMenu()">&#9776;</button>
+        <ul id="primaryNav" class="hide">
             <li><a href="index.html">Home</a></li>
             <li><a href="preston.html">Preston</a></li>
             <li><a href="springs.html">Soda Springs</a></li>
@@ -50,10 +54,10 @@
     
 <!-- CONTENT HERE -->
 <main>
-    <h1>Course Proposal Application</h1>
+    <h1>Storm Center</h1>
         <form method="get" action="thanks.html">
             <fieldset>
-            <legend>applicant Information</legend>
+            <legend>Personal Information</legend>
                 <label class="top">Full Name* <input type="text" name="fname" required></label>
                  <label class="top">Email* <input type="email" name="email" placeholder="someone@gmail.com" required></label>
                  <label class="top">Phone* <input type="tel" name="phone" placeholder="1235551234" required></label>
@@ -123,6 +127,11 @@
             
             
             </fieldset>
+
+            <fieldset>
+                <legend>additional information or comments</legend>
+                <textarea rows="5" cols="35"></textarea>
+            </fieldset>
                 <input type="submit" value="Check Weather Update" class="submitBtn">
     
     
@@ -137,6 +146,6 @@
     <footer>
         &copy; 2018 &bull; Joseph Itiose &bull; 123-555-6789
     </footer>
-<script src="js/script.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>

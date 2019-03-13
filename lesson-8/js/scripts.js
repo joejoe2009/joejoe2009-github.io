@@ -20,4 +20,8 @@ function myCurrentDate() {
     document.getElementById("date").innerHTML = n;
   }
 
+
+  function adjustRange(range) {
+    document.getElementById("rangevalue").innerHTML = range;
+}
   
