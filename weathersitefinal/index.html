@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Fill Me In">
+<meta name="author" content="John Doe">
+
+<!-- This start file was build by Joseph Itiose  -->
+<title>Home: The Weather Site</title>
+
+<!-- TELLS PHONES NOT TO LIE ABOUT THEIR WIDTH & stops the font from enlarging when a phone is turned sideways-->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<!-- STYLE SHEETS -->
+<link href="css/normalize.css" rel="stylesheet">
+<!-- phone-default -->
+<link href="css/small.css" rel="stylesheet">
+<!-- enhance-tablet -->
+<link href="css/medium.css" rel="stylesheet">
+<!-- enhance-desktop -->
+<link href="css/large.css" rel="stylesheet">
+
+
+     
+</head>
+<body>
+<!-- HEADER HERE -->
+<header class="clearfix">
+   <img src="images/logo0.png" alt="logo">
+    <div>
+       <h1>The weather Site</h1>
+       <h2>Providing Updates and weather intel for Benin City, Edo state</h2>
+    </div>
+</header>
+    
+    
+    
+<!-- NAVIGATION HERE -->
+    <nav class="clearfix">
+        <button onclick="toggleMenu()">&#9776;</button>
+        <ul id="primaryNav" class="hide">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="preston.html">Preston</a></li>
+            <li><a href="springs.html">Soda Springs</a></li>
+            <li><a href="haven.html">Fish Haven</a></li>
+            <li><a href="center.html">Storm Center</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+                   
+        </ul>
+    </nav>
+    
+    
+<!-- CONTENT HERE -->
+    <main class="clearfix">
+        <h1>Town Summary</h1>
+
+        <section id="threecities"></section>
+                    
+         </main>
+    
+<!-- FOOTER HERE -->   
+    <footer>
+            <button onclick="myCurrentDate()">Day</button>
+            <p id="currentDate"></p>
+        &amp; 201x &bull; Joseph Itiose learn; 123-602-7789
+    </footer>
+    <script src="js/scripts.js"></script>
+    <script src="js/windchill.js"></script>
+    <script src="js/towndata.js"></script>
+    
+</body>
+</html>
