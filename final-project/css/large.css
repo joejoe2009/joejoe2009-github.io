@@ -1,0 +1,40 @@
+/* 64em is also 1028px (if basefont is 16px) */
+@media only screen and (min-width: 64rem) {
+
+    header, nav, main, footer {
+        max-width: 64rem;
+        margin:auto;
+    }
+
+/*----------- BODY --------------*/
+
+
+
+/*----------- HEADER --------------*/
+
+
+
+/*----------- NAVIGATION --------------*/
+
+nav ul li a {padding: .6rem 1rem;}
+
+
+/*----------- MAIN --------------*/
+div.container figure {
+    flex-basis: 29%;
+}
+
+form label.sbs {
+    padding: .4rem 0;
+}
+    
+#fourTemples {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+        padding: 10px 0 10px 15px;
+
+}
+
+/*----------- FOOTER --------------*/
+    
+} /* end of media query */
