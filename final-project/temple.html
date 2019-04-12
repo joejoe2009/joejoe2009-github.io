@@ -21,6 +21,8 @@
 <!-- enhance-desktop -->
 <link href="css/large.css" rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
      
 </head>
@@ -56,7 +58,63 @@
 
         <section id="fourTemples"></section>
             
-                    
+      
+        <div class="row">         
+               <h2>Aba Nigeria</h2>
+               <h3>Current conditions</h3>
+               <p>Currently: <span id="currently">Partly cloudy</span></p>
+               <p>Temperature: <span id="current-temp">Low</span>&deg; F </p>
+               <p>Humidity: <span id="current-humi">High</span>% </p>
+              <p>Wind Speed: <span id="current-wind">00</span> mph</p>
+              Temperature (°F) <input type="text" id="tempFInputBox"><br>
+                Wind Speed (MPH) <input type="text" id="speedInputBox"><br>
+
+                <button type="button" onclick="doInputOutput()">windChill</button>
+             <div id="outputDiv"></div>
+              </div>
+
+              <div class="row">         
+                <h2>Accra Ghana</h2>
+                <h3>Current conditions</h3>
+                <p>Currently: <span id="currently1">Partly cloudy</span></p>
+                <p>Temperature: <span id="current-temp1">Low</span>&deg; F </p>
+                <p>Humidity: <span id="current-humi1">High</span>% </p>
+               <p>Wind Speed: <span id="current-wind1">00</span> mph</p>
+               Temperature (°F) <input type="text" id="tempFInputBox"><br>
+                 Wind Speed (MPH) <input type="text" id="speedInputBox"><br>
+
+                 <button type="button" onclick="doInputOutput()">windChill</button>
+             <div id="outputDiv"></div>
+               </div>
+
+               <div class="row">         
+                <h2>Adelaide Australia</h2>
+                <h3>Current conditions</h3>
+                <p>Currently: <span id="currently2">Partly cloudy</span></p>
+                <p>Temperature: <span id="current-temp2">Low</span>&deg; F </p>
+                <p>Humidity: <span id="current-humi2">High</span>% </p>
+               <p>Wind Speed: <span id="current-wind2">00</span> mph</p>
+               Temperature (°F) <input type="text" id="tempFInputBox"><br>
+                 Wind Speed (MPH) <input type="text" id="speedInputBox"><br>
+
+                 <button type="button" onclick="doInputOutput()">windChill</button>
+             <div id="outputDiv"></div>
+               </div>
+
+               <div class="row">         
+                <h2> Albuquerque New Mexico</h2>
+                <h3>Current conditions</h3>
+                <p>Currently: <span id="currently3">Partly cloudy</span></p>
+                <p>Temperature: <span id="current-temp3">Low</span>&deg; F </p>
+                <p>Humidity: <span id="current-humi3">High</span>% </p>
+               <p>Wind Speed: <span id="current-wind3">00</span> mph</p>
+               Temperature (°F) <input type="text" id="tempFInputBox"><br>
+                 Wind Speed (MPH) <input type="text" id="speedInputBox"><br>
+
+                 <button type="button" onclick="doInputOutput()">windChill</button>
+             <div id="outputDiv"></div>
+               </div>
+
          </main>
 
     
@@ -68,6 +126,10 @@
     </footer>
     <script src="js/scripts.js"></script>
     <script src="js/templedata.js"></script>
+    <script src="js/Ngweather.js"></script>
+    <script src="js/Ghweather.js"></script>
+    <script src="js/Auweather.js"></script>
+    <script src="js/Usweather.js"></script>
     
 </body>
 </html>
