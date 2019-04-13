@@ -1,5 +1,5 @@
 var section = document.querySelector('section');
-var requestURL = 'https://joejoe2009.github.io/final-project/directory/templedata.json';
+var requestURL = 'https://joejoe2009.github.io/finalproject/directory/templedata.json';
 var request = new XMLHttpRequest();
 request.open('GET', requestURL);
 
