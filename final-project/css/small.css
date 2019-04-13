@@ -20,7 +20,7 @@ font-family: 'Roboto', sans-serif;
 
 header {
     padding: .5rem 2%;
-    background-color: #6E6E10;
+    background-color: #00FFFF;
     display: grid;
     grid-template-columns: 130px auto;
 }
@@ -149,17 +149,6 @@ div.container figure {
 
 div.container figure img {
      width: 100%;
-}
-table, td {
-    border: 1px solid black;
-    width: 10%;
-    
-  }
-
-  table {
-    width: 100%;
-    display: none;
-    
 }
 
 #left-column {

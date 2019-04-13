@@ -33,9 +33,7 @@ div.container figure {
     flex-basis: 31%;
 }
 
-table {
-    display: block;
-}
+
 
 #fourTemples {
     display: grid;
