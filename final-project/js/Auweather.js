@@ -19,8 +19,8 @@ weatherRequest2.onload =  function () {
 // windchill
 
 function doInputOutput() {
-    var tempF = parseFloat(document.getElementById('tempFInputBox').value);
-    var speed =  parseFloat(document.getElementById('speedInputBox').value);
+    var tempF = parseFloat(document.getElementById('tempFInputBox2').value);
+    var speed =  parseFloat(document.getElementById('speedInputBox2').value);
     var result = windChill(tempF, speed);
     document.getElementById('outputDiv2').innerHTML = result;
 }
