@@ -1,10 +1,10 @@
-let weatherRequest = new XMLHttpRequest();
-weatherRequest.open('GET', '//api.openweathermap.org/data/2.5/weather?id=5061036&appid=02acf3eba1e20146f0800379e8cb831c&units=imperial',true);
+let weatherRequest3 = new XMLHttpRequest();
+weatherRequest3.open('GET', '//api.openweathermap.org/data/2.5/weather?id=5061036&appid=02acf3eba1e20146f0800379e8cb831c&units=imperial',true);
 
-weatherRequest.send();
+weatherRequest3.send();
 
-weatherRequest.onload =  function () {
-    let weatherData = JSON.parse(weatherRequest.responseText);
+weatherRequest3.onload =  function () {
+    let weatherData = JSON.parse(weatherRequest3.responseText);
     console.log(weatherData);
 
     document.getElementById('currently3').innerHTML = weatherData.weather[0].main;
@@ -22,7 +22,7 @@ function doInputOutput() {
     var tempF = parseFloat(document.getElementById('tempFInputBox').value);
     var speed =  parseFloat(document.getElementById('speedInputBox').value);
     var result = windChill(tempF, speed);
-    document.getElementById('outputDiv').innerHTML = result;
+    document.getElementById('outputDiv3').innerHTML = result;
 }
 
 function windChill(tempF, speed) { 

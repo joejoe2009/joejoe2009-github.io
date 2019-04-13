@@ -46,6 +46,15 @@ table {
 #fourTemples article {
     width: 100%;
 }
+
+.weatherupdate {
+
+    display: grid;
+grid-template-columns: 1fr 1fr;
+        text-align: center;
+        padding: 5px;
+        margin-bottom: 5px;
+}
 /*----------- FOOTER --------------*/
     
 } /* end of media query */

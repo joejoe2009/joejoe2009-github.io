@@ -203,12 +203,20 @@ p.right {
 #fourTemples article img {
     width: 100%;
     border-radius: 5px 5px 5% 5%;
+    display: grid;
+    margin: auto;
 }
 
 #fourTemples ul {
     margin-top: 0;
 }
 
+
+
+.place {
+    border: 2px solid #000080;
+    padding: 5px;
+}
 /*--------------FORM---------------*/
 
 form fieldset {

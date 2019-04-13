@@ -30,11 +30,19 @@ form label.sbs {
     
 #fourTemples {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
         padding: 10px 0 10px 15px;
 
 }
 
+.weatherupdate {
+
+    display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+        text-align: center;
+        padding: 5px;
+        margin-bottom: 5px;
+}
 /*----------- FOOTER --------------*/
     
 } /* end of media query */
