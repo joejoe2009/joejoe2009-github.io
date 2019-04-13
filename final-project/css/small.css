@@ -293,10 +293,11 @@ div.fullmission figcaption {
     text-align:center;    
 }
 
-/*--------Reception Page-------------------*/
-
-
-/*--------Missionary Page-----------------*/
+.contactUs {
+    display: grid;
+    grid-template-columns: 40% auto 30%;
+    margin-bottom: 5%;
+}
 
 
 /*----------- FOOTER --------------*/
